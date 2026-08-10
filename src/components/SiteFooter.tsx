@@ -8,7 +8,7 @@ export default function SiteFooter() {
   const { t } = useLanguage();
 
   return (
-    <footer id="contact" className="bg-black px-6 py-16 md:px-12">
+    <footer id="contact" className="relative border-t border-white/5 px-6 py-16 md:px-12">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-3">
         <Reveal>
           <div className="text-xl font-bold">{t.header.businessName}</div>

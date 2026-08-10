@@ -5,7 +5,6 @@
 .DS_Store
 *.log
 data/leads.json
-DELETE_ME_node_modules
 DELETE_ME_*
 
 .env

@@ -7,7 +7,7 @@ export default function VideoGallery() {
   const { t } = useLanguage();
 
   return (
-    <section id="gallery" className="bg-neutral-950 px-6 py-24 md:px-12">
+    <section id="gallery" className="relative border-t border-white/5 px-6 py-24 md:px-12">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <span className="text-sm uppercase tracking-widest text-accent">

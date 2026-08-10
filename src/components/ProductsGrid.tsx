@@ -7,7 +7,7 @@ export default function ProductsGrid() {
   const { t } = useLanguage();
 
   return (
-    <section id="products" className="bg-black px-6 py-24 md:px-12">
+    <section id="products" className="relative border-t border-white/5 px-6 py-24 md:px-12">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <span className="text-sm uppercase tracking-widest text-accent">
