@@ -13,6 +13,7 @@ export const translations = {
         contact: "Contact",
       },
       language: "Language",
+      quickContact: "Chat on WhatsApp",
     },
     hero: {
       scrollHint: "Scroll down ↓",
@@ -130,6 +131,7 @@ export const translations = {
         contact: "צור קשר",
       },
       language: "שפה",
+      quickContact: "צ'אט בוואטסאפ",
     },
     hero: {
       scrollHint: "גללו למטה ↓",
