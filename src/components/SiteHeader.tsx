@@ -78,7 +78,7 @@ export default function SiteHeader() {
 
       <div
         ref={panelRef}
-        className={`absolute left-6 top-full mt-3 w-64 origin-top-left overflow-hidden rounded-2xl bg-neutral-900/95 shadow-2xl ring-1 ring-white/10 backdrop-blur transition-all duration-300 md:left-12 ${
+        className={`absolute end-6 top-full mt-3 w-64 origin-top overflow-hidden rounded-2xl bg-neutral-900/95 shadow-2xl ring-1 ring-white/10 backdrop-blur transition-all duration-300 md:end-12 ${
           open
             ? "translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-2 scale-95 opacity-0"
