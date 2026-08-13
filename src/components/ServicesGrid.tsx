@@ -9,13 +9,24 @@ import {
   FaCouch,
   FaWandMagicSparkles,
   FaShieldHalved,
+  FaShieldHeart,
+  FaLayerGroup,
   FaArrowRightLong,
 } from "react-icons/fa6";
 import Reveal from "./Reveal";
 import { useLanguage } from "@/lib/LanguageProvider";
 import { servicesData } from "@/lib/servicesData";
 
-const ICONS = [FaSoap, FaBroom, FaGears, FaCouch, FaWandMagicSparkles, FaShieldHalved];
+const ICONS = [
+  FaSoap,
+  FaBroom,
+  FaGears,
+  FaCouch,
+  FaWandMagicSparkles,
+  FaShieldHalved,
+  FaShieldHeart,
+  FaLayerGroup,
+];
 
 export default function ServicesGrid() {
   const { t, lang } = useLanguage();
