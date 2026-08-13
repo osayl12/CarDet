@@ -1,14 +1,25 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Reveal from "./Reveal";
 import { useLanguage } from "@/lib/LanguageProvider";
+import { servicesData } from "@/lib/servicesData";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function QuoteForm() {
-  const { t } = useLanguage();
+function QuoteFormInner() {
+  const { t, lang } = useLanguage();
+  const searchParams = useSearchParams();
+  const services = servicesData[lang];
+
   const [status, setStatus] = useState<Status>("idle");
+  const [selectedService, setSelectedService] = useState("");
+
+  useEffect(() => {
+    const param = searchParams.get("service");
+    if (param) setSelectedService(param);
+  }, [searchParams]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -26,6 +37,7 @@ export default function QuoteForm() {
       if (!res.ok) throw new Error("bad response");
       setStatus("success");
       form.reset();
+      setSelectedService("");
     } catch {
       setStatus("error");
     }
@@ -72,15 +84,18 @@ export default function QuoteForm() {
             />
             <select
               name="service"
-              defaultValue=""
+              value={selectedService}
+              onChange={(e) => setSelectedService(e.target.value)}
               className="rounded-xl bg-neutral-900 px-4 py-3 ring-1 ring-white/10 outline-none focus:ring-accent"
             >
               <option value="" disabled>
                 {t.quote.servicePlaceholder}
               </option>
-              <option value="wash">{t.quote.serviceOptions.wash}</option>
-              <option value="detailing">{t.quote.serviceOptions.detailing}</option>
-              <option value="nano">{t.quote.serviceOptions.nano}</option>
+              {services.map((s) => (
+                <option key={s.slug} value={s.slug}>
+                  {s.name}
+                </option>
+              ))}
               <option value="other">{t.quote.serviceOptions.other}</option>
             </select>
             <textarea
@@ -108,5 +123,13 @@ export default function QuoteForm() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+export default function QuoteForm() {
+  return (
+    <Suspense fallback={null}>
+      <QuoteFormInner />
+    </Suspense>
   );
 }

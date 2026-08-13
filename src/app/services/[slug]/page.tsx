@@ -139,7 +139,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
           <Reveal delay={250} className="mt-12 text-center">
             <a
-              href="/#quote"
+              href={`/?service=${service.slug}#quote`}
               className="inline-block rounded-full bg-accent px-10 py-4 text-lg font-semibold transition-colors hover:bg-accent2"
             >
               {labels.ctaLabel}
