@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   FaSoap,
   FaBroom,
@@ -8,23 +9,17 @@ import {
   FaCouch,
   FaWandMagicSparkles,
   FaShieldHalved,
+  FaArrowRightLong,
 } from "react-icons/fa6";
 import Reveal from "./Reveal";
 import { useLanguage } from "@/lib/LanguageProvider";
+import { servicesData } from "@/lib/servicesData";
 
 const ICONS = [FaSoap, FaBroom, FaGears, FaCouch, FaWandMagicSparkles, FaShieldHalved];
 
-const IMAGES = [
-  "/images/services/exterior-wash.jpg",
-  "/images/services/interior-detailing.jpg",
-  "/images/services/engine-bay.jpg",
-  "/images/services/leather-seats.jpg",
-  "/images/services/paint-correction.jpg",
-  "/images/services/nano-coating.jpg",
-];
-
 export default function ServicesGrid() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const services = servicesData[lang];
 
   return (
     <section id="services" className="relative border-t border-white/5 px-6 py-24 md:px-12">
@@ -38,14 +33,17 @@ export default function ServicesGrid() {
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {t.services.items.map((service, i) => {
+          {services.map((service, i) => {
             const Icon = ICONS[i % ICONS.length];
             return (
-              <Reveal key={service.name} delay={i * 80}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-neutral-900 ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:ring-accent/40">
+              <Reveal key={service.slug} delay={i * 80}>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl bg-neutral-900 ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:ring-accent/40"
+                >
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
-                      src={IMAGES[i % IMAGES.length]}
+                      src={service.image}
                       alt={service.name}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -58,16 +56,26 @@ export default function ServicesGrid() {
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">
-                    <h3 className="text-lg font-semibold">{service.name}</h3>
-                    <p className="mt-2 flex-1 text-sm text-white/60">{service.description}</p>
+                    <h3 className="flex items-center justify-between text-lg font-semibold">
+                      {service.name}
+                      <FaArrowRightLong
+                        size={14}
+                        className="text-white/30 transition-transform duration-300 rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+                      />
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm text-white/60">
+                      {service.shortDescription}
+                    </p>
                     <div className="mt-5 flex items-baseline justify-between border-t border-white/10 pt-4">
                       <span className="text-xs uppercase tracking-widest text-white/40">
                         {t.services.priceFrom}
                       </span>
-                      <span className="text-2xl font-bold text-accent">{service.price}</span>
+                      <span className="text-2xl font-bold text-accent">
+                        {service.tiers[0].price}
+                      </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             );
           })}
