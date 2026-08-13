@@ -82,6 +82,26 @@ function QuoteFormInner() {
               placeholder={t.quote.carModel}
               className="rounded-xl bg-neutral-900 px-4 py-3 ring-1 ring-white/10 outline-none focus:ring-accent"
             />
+            <label className="flex flex-col gap-1 text-start">
+              <span className="px-1 text-xs uppercase tracking-widest text-white/40">
+                {t.quote.preferredDate}
+              </span>
+              <input
+                name="preferredDate"
+                type="date"
+                className="rounded-xl bg-neutral-900 px-4 py-3 text-white/80 ring-1 ring-white/10 outline-none focus:ring-accent [color-scheme:dark]"
+              />
+            </label>
+            <label className="flex flex-col gap-1 text-start">
+              <span className="px-1 text-xs uppercase tracking-widest text-white/40">
+                {t.quote.preferredTime}
+              </span>
+              <input
+                name="preferredTime"
+                type="time"
+                className="rounded-xl bg-neutral-900 px-4 py-3 text-white/80 ring-1 ring-white/10 outline-none focus:ring-accent [color-scheme:dark]"
+              />
+            </label>
             <select
               name="service"
               value={selectedService}

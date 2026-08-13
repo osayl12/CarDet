@@ -92,6 +92,8 @@ export const translations = {
       phone: "Phone",
       email: "Email",
       carModel: "Car model",
+      preferredDate: "Preferred date",
+      preferredTime: "Preferred time",
       servicePlaceholder: "Which service interests you?",
       serviceOptions: {
         wash: "Wash",
@@ -111,6 +113,7 @@ export const translations = {
       phone: "050-4306426",
       email: "info@example.com",
       address: "Business address, city (placeholder)",
+      getDirections: "Get Directions",
       hoursTitle: "Business Hours",
       hours: ["Sun-Thu: 08:00-19:00", "Fri: 08:00-14:00", "Sat: Closed"],
       rights: "All rights reserved.",
@@ -225,6 +228,8 @@ export const translations = {
       phone: "טלפון",
       email: "אימייל",
       carModel: "דגם הרכב",
+      preferredDate: "תאריך הגעה מועדף",
+      preferredTime: "שעת הגעה מועדפת",
       servicePlaceholder: "איזה שירות מעניין אתכם?",
       serviceOptions: {
         wash: "שטיפה",
@@ -244,6 +249,7 @@ export const translations = {
       phone: "050-4306426",
       email: "info@example.com",
       address: "כתובת העסק, עיר (placeholder)",
+      getDirections: "ניווט לעסק",
       hoursTitle: "שעות פעילות",
       hours: ["א׳-ה׳: 08:00-19:00", "ו׳: 08:00-14:00", "שבת: סגור"],
       rights: "כל הזכויות שמורות.",

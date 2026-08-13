@@ -28,6 +28,8 @@ type QuoteBody = {
   phone?: string;
   email?: string;
   carModel?: string;
+  preferredDate?: string;
+  preferredTime?: string;
   service?: string;
   message?: string;
 };
@@ -40,7 +42,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
 
-  const { name, phone, email, carModel, service, message } = body;
+  const { name, phone, email, carModel, preferredDate, preferredTime, service, message } = body;
 
   if (!name || !phone) {
     return NextResponse.json(
@@ -54,6 +56,8 @@ export async function POST(req: NextRequest) {
     phone,
     email: email || null,
     carModel: carModel || null,
+    preferredDate: preferredDate || null,
+    preferredTime: preferredTime || null,
     service: service || null,
     message: message || null,
     createdAt: new Date().toISOString(),

@@ -6,14 +6,13 @@ import {
   FaXmark,
   FaVideo,
   FaTags,
-  FaCartShopping,
   FaFileInvoiceDollar,
   FaAddressCard,
   FaWhatsapp,
 } from "react-icons/fa6";
 import { useLanguage } from "@/lib/LanguageProvider";
 
-const SECTION_IDS = ["gallery", "services", "products", "quote", "contact"];
+const SECTION_IDS = ["gallery", "services", "quote", "contact"];
 const WHATSAPP_NUMBER = "972504306426";
 
 export default function SiteHeader() {
@@ -26,7 +25,6 @@ export default function SiteHeader() {
   const LINKS = [
     { href: "#gallery", label: t.header.links.gallery, Icon: FaVideo },
     { href: "#services", label: t.header.links.services, Icon: FaTags },
-    { href: "#products", label: t.header.links.products, Icon: FaCartShopping },
     { href: "#quote", label: t.header.links.quote, Icon: FaFileInvoiceDollar, cta: true },
     { href: "#contact", label: t.header.links.contact, Icon: FaAddressCard },
   ];
