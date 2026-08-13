@@ -209,7 +209,7 @@ export const servicesData: Record<Lang, ServiceDetail[]> = {
       slug: "nano-ceramic-coating-3-year",
       name: "Nano Ceramic Coating - 3 Years",
       shortDescription: "Long-lasting ceramic protection, 3-year durability.",
-      image: "/images/services/nano-coating.jpg",
+      image: "/images/services/nano-coating-3yr.png",
       intro:
         "A durable SiO2 ceramic layer rated for 3 years of protection, keeping the paint glossy and easier to maintain.",
       steps: [
@@ -238,7 +238,7 @@ export const servicesData: Record<Lang, ServiceDetail[]> = {
       slug: "nano-ceramic-coating-5-year",
       name: "Nano Ceramic Coating - 5 Years",
       shortDescription: "Our premium formula, 5-year durability.",
-      image: "/images/services/nano-coating.jpg",
+      image: "/images/services/nano-coating-5yr.png",
       intro:
         "Our premium SiO2 ceramic formula rated for 5 years — maximum protection and gloss for owners who want the longest-lasting result.",
       steps: [
@@ -267,7 +267,7 @@ export const servicesData: Record<Lang, ServiceDetail[]> = {
       slug: "full-package",
       name: "Full Detail Package",
       shortDescription: "Everything included — exterior, interior, engine, leather & polish.",
-      image: "/images/services/paint-correction.jpg",
+      image: "/images/services/full-package.png",
       intro:
         "Our complete package — exterior wash, interior detailing, engine bay cleaning, leather care, and paint correction, bundled at a discounted price. Want maximum, long-term protection too? Add ceramic coating below.",
       steps: [
@@ -450,7 +450,7 @@ export const servicesData: Record<Lang, ServiceDetail[]> = {
       slug: "nano-ceramic-coating-3-year",
       name: "ציפוי ננו קרמי - 3 שנים",
       shortDescription: "הגנה קרמית ארוכת טווח, מחזיק 3 שנים.",
-      image: "/images/services/nano-coating.jpg",
+      image: "/images/services/nano-coating-3yr.png",
       intro: "שכבת קרמיקה SiO2 עמידה שמחזיקה 3 שנות הגנה, שומרת על הצבע מבריק וקל יותר לתחזוקה.",
       steps: [
         "שטיפת דה-קונטמינציה מלאה וטיפול קליי בר",
@@ -478,7 +478,7 @@ export const servicesData: Record<Lang, ServiceDetail[]> = {
       slug: "nano-ceramic-coating-5-year",
       name: "ציפוי ננו קרמי - 5 שנים",
       shortDescription: "הפורמולה הפרימיום שלנו, מחזיק 5 שנים.",
-      image: "/images/services/nano-coating.jpg",
+      image: "/images/services/nano-coating-5yr.png",
       intro:
         "פורמולת הקרמיקה הפרימיום שלנו שמחזיקה 5 שנים - הגנה וברק מקסימליים למי שרוצה את התוצאה הכי ארוכת טווח שיש.",
       steps: [
@@ -507,7 +507,7 @@ export const servicesData: Record<Lang, ServiceDetail[]> = {
       slug: "full-package",
       name: "חבילה מלאה",
       shortDescription: "הכל כלול - חיצוני, פנימי, מנוע, עור ופוליש.",
-      image: "/images/services/paint-correction.jpg",
+      image: "/images/services/full-package.png",
       intro:
         "החבילה המלאה שלנו - שטיפה חיצונית, דיטיילינג פנימי, ניקוי תא מנוע, טיפול בעור ותיקון צבע, בחבילה אחת במחיר מוזל. רוצים גם הגנה מקסימלית לטווח ארוך? אפשר להוסיף ציפוי ננו למטה.",
       steps: [
