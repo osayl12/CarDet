@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "./Reveal";
 import SocialIcons from "./SocialIcons";
 import { useLanguage } from "@/lib/LanguageProvider";
@@ -16,7 +17,16 @@ export default function SiteFooter() {
     <footer id="contact" className="relative border-t border-white/5 px-6 py-16 md:px-12">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-3">
         <Reveal>
-          <div className="text-xl font-bold">{t.header.businessName}</div>
+          <div className="flex items-center gap-2">
+            <Image
+              src="/images/brand/logo.png"
+              alt={t.header.businessName}
+              width={36}
+              height={36}
+              className="rounded-full"
+            />
+            <span className="text-xl font-bold">{t.header.businessName}</span>
+          </div>
           <p className="mt-3 text-white/60">{t.footer.description}</p>
           <SocialIcons className="mt-5" />
         </Reveal>

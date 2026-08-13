@@ -6,23 +6,23 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Business Name | Car Wash, Detailing & Nano Coating",
+  title: "Slick Garage | Car Wash, Detailing & Nano Coating",
   description:
     "Professional car wash, detailing, and ceramic nano coating services. Leave your details for a free quote.",
   openGraph: {
-    title: "Business Name | Car Wash, Detailing & Nano Coating",
+    title: "Slick Garage | Car Wash, Detailing & Nano Coating",
     description:
       "Professional car wash, detailing, and ceramic nano coating services. Leave your details for a free quote.",
     url: SITE_URL,
-    siteName: "Business Name",
+    siteName: "Slick Garage",
     type: "website",
     locale: "en_US",
     alternateLocale: "he_IL",
-    images: ["/og-image.jpg"], // TODO: replace with a real 1200x630 image
+    images: ["/images/brand/logo.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Business Name | Car Wash, Detailing & Nano Coating",
+    title: "Slick Garage | Car Wash, Detailing & Nano Coating",
     description:
       "Professional car wash, detailing, and ceramic nano coating services.",
   },
@@ -35,12 +35,14 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoWash",
-  name: "Business Name",
-  image: `${SITE_URL}/og-image.jpg`,
+  name: "Slick Garage",
+  image: `${SITE_URL}/images/brand/logo.png`,
   telephone: "+972504306426",
   priceRange: "₪₪",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "A-Tarik neighborhood",
+    addressLocality: "Maghar",
     addressCountry: "IL",
   },
   geo: {

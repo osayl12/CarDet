@@ -4,7 +4,7 @@ export const translations = {
   en: {
     dir: "ltr" as const,
     header: {
-      businessName: "Business Name",
+      businessName: "Slick Garage",
       menuAria: "Open menu",
       links: {
         gallery: "Detailing Videos",
@@ -112,7 +112,7 @@ export const translations = {
       contactTitle: "Contact",
       phone: "050-4306426",
       email: "info@example.com",
-      address: "Business address, city (placeholder)",
+      address: "A-Tarik neighborhood, Maghar",
       getDirections: "Get Directions",
       hoursTitle: "Business Hours",
       hours: ["Sun-Thu: 08:00-19:00", "Fri: 08:00-14:00", "Sat: Closed"],
@@ -140,7 +140,7 @@ export const translations = {
   he: {
     dir: "rtl" as const,
     header: {
-      businessName: "שם העסק",
+      businessName: "Slick Garage",
       menuAria: "פתיחת תפריט",
       links: {
         gallery: "סרטוני דיטיילינג",
@@ -248,7 +248,7 @@ export const translations = {
       contactTitle: "יצירת קשר",
       phone: "050-4306426",
       email: "info@example.com",
-      address: "כתובת העסק, עיר (placeholder)",
+      address: "שכונת א-טריק, מגאר",
       getDirections: "ניווט לעסק",
       hoursTitle: "שעות פעילות",
       hours: ["א׳-ה׳: 08:00-19:00", "ו׳: 08:00-14:00", "שבת: סגור"],

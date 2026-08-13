@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import {
   FaBars,
   FaXmark,
@@ -90,7 +91,17 @@ export default function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-6 py-4 md:px-12">
       <div className="flex items-center justify-between">
-        <div className="text-xl font-bold tracking-tight">{t.header.businessName}</div>
+        <a href="/" className="flex items-center gap-2">
+          <Image
+            src="/images/brand/logo.png"
+            alt={t.header.businessName}
+            width={40}
+            height={40}
+            className="rounded-full"
+            priority
+          />
+          <span className="text-xl font-bold tracking-tight">{t.header.businessName}</span>
+        </a>
 
         <button
           ref={buttonRef}
