@@ -1,5 +1,6 @@
 import SiteHeader from "@/components/SiteHeader";
 import ScrollVideoStory from "@/components/ScrollVideoStory";
+import ServicesGrid from "@/components/ServicesGrid";
 import VideoGallery from "@/components/VideoGallery";
 import ProductsGrid from "@/components/ProductsGrid";
 import QuoteForm from "@/components/QuoteForm";
@@ -14,6 +15,7 @@ export default function Home() {
       <AmbientBackground />
       <SiteHeader />
       <ScrollVideoStory />
+      <ServicesGrid />
       <VideoGallery />
       <ProductsGrid />
       <QuoteForm />

@@ -5,6 +5,7 @@ import {
   FaBars,
   FaXmark,
   FaVideo,
+  FaTags,
   FaCartShopping,
   FaFileInvoiceDollar,
   FaAddressCard,
@@ -12,7 +13,7 @@ import {
 } from "react-icons/fa6";
 import { useLanguage } from "@/lib/LanguageProvider";
 
-const SECTION_IDS = ["gallery", "products", "quote", "contact"];
+const SECTION_IDS = ["gallery", "services", "products", "quote", "contact"];
 const WHATSAPP_NUMBER = "972504306426";
 
 export default function SiteHeader() {
@@ -24,6 +25,7 @@ export default function SiteHeader() {
 
   const LINKS = [
     { href: "#gallery", label: t.header.links.gallery, Icon: FaVideo },
+    { href: "#services", label: t.header.links.services, Icon: FaTags },
     { href: "#products", label: t.header.links.products, Icon: FaCartShopping },
     { href: "#quote", label: t.header.links.quote, Icon: FaFileInvoiceDollar, cta: true },
     { href: "#contact", label: t.header.links.contact, Icon: FaAddressCard },
@@ -99,7 +101,7 @@ export default function SiteHeader() {
           aria-expanded={open}
           className={`relative flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 ${
             open
-              ? "border-accent bg-accent/10 text-accent"
+              ? "border-accent bg-accent/10 text-accent shadow-[0_0_20px_-4px_theme(colors.accent)]"
               : "border-white/30 hover:border-accent hover:text-accent"
           }`}
         >
@@ -130,13 +132,19 @@ export default function SiteHeader() {
 
       <div
         ref={panelRef}
-        className={`fixed inset-4 top-20 z-40 flex origin-top flex-col overflow-hidden rounded-2xl bg-neutral-900/95 shadow-2xl ring-1 ring-white/10 backdrop-blur transition-all duration-300 md:absolute md:inset-x-auto md:inset-y-auto md:end-12 md:top-full md:mt-3 md:w-64 md:flex-none ${
+        className={`fixed inset-4 top-20 z-40 flex origin-top flex-col overflow-hidden rounded-2xl bg-neutral-900/95 shadow-2xl ring-1 ring-white/10 backdrop-blur transition-all duration-300 md:absolute md:inset-x-auto md:inset-y-auto md:end-12 md:top-full md:mt-3 md:w-72 md:flex-none ${
           open
             ? "translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-2 scale-95 opacity-0"
         }`}
       >
-        <nav className="flex flex-1 flex-col justify-center gap-1 p-3 md:flex-none md:justify-start md:gap-0 md:p-2">
+        <div className="h-[3px] w-full shrink-0 bg-gradient-to-r from-accent via-accent2 to-accent" />
+
+        <div className="px-5 pb-1 pt-4 text-xs font-semibold uppercase tracking-widest text-white/30">
+          {t.header.menuAria}
+        </div>
+
+        <nav className="flex flex-1 flex-col justify-center gap-1 p-3 md:flex-none md:justify-start md:gap-1 md:p-2">
           {LINKS.map(({ href, label, Icon, cta }, i) => {
             const isActive = activeId === href.slice(1);
             return (
@@ -145,7 +153,7 @@ export default function SiteHeader() {
                 href={href}
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: open ? `${i * 60}ms` : "0ms" }}
-                className={`flex items-center gap-3 rounded-xl px-4 py-4 text-base transition-all duration-300 md:py-3 md:text-sm ${
+                className={`group flex items-center gap-3 rounded-xl px-3 py-3.5 text-base transition-all duration-300 md:py-2.5 md:text-sm ${
                   open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
                 } ${
                   cta
@@ -155,7 +163,17 @@ export default function SiteHeader() {
                     : "hover:bg-white/10 hover:text-accent"
                 }`}
               >
-                <Icon size={16} className={cta ? "text-white" : "text-white/50"} />
+                <span
+                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 ${
+                    cta
+                      ? "bg-white/15 text-white"
+                      : isActive
+                      ? "bg-accent/20 text-accent"
+                      : "bg-white/5 text-white/50 group-hover:bg-accent/20 group-hover:text-accent"
+                  }`}
+                >
+                  <Icon size={15} />
+                </span>
                 {label}
                 {isActive && !cta && (
                   <span className="ms-auto h-1.5 w-1.5 rounded-full bg-accent" />

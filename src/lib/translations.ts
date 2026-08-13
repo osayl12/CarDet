@@ -8,6 +8,7 @@ export const translations = {
       menuAria: "Open menu",
       links: {
         gallery: "Detailing Videos",
+        services: "Services",
         products: "Products",
         quote: "Get a Quote",
         contact: "Contact",
@@ -39,6 +40,20 @@ export const translations = {
           body: "Leave your details and we'll get back to you with a custom quote.",
           cta: "Get a Quote",
         },
+      ],
+    },
+    services: {
+      eyebrow: "What We Offer",
+      title: "Services & Pricing",
+      description: "Transparent pricing for every service. Final price may vary slightly by vehicle size and condition.",
+      priceFrom: "from",
+      items: [
+        { name: "Exterior Wash", description: "Hand wash, foam bath, wheels & tires.", price: "₪80" },
+        { name: "Interior Detailing", description: "Deep vacuum, dashboard, panels & glass.", price: "₪250" },
+        { name: "Engine Bay Cleaning", description: "Safe degreasing and detailing of the engine bay.", price: "₪150" },
+        { name: "Leather Seat Care", description: "Deep cleaning and conditioning for leather seats.", price: "₪200" },
+        { name: "Paint Correction & Polish", description: "Removes swirl marks and restores paint depth.", price: "₪450" },
+        { name: "Nano Ceramic Coating - Full Car", description: "Long-lasting ceramic protection and deep gloss.", price: "₪1,200" },
       ],
     },
     gallery: {
@@ -126,6 +141,7 @@ export const translations = {
       menuAria: "פתיחת תפריט",
       links: {
         gallery: "סרטוני דיטיילינג",
+        services: "שירותים",
         products: "מוצרים",
         quote: "הצעת מחיר",
         contact: "צור קשר",
@@ -157,6 +173,20 @@ export const translations = {
           body: "השאירו פרטים ונחזור אליכם עם הצעת מחיר מותאמת אישית.",
           cta: "קבלו הצעת מחיר",
         },
+      ],
+    },
+    services: {
+      eyebrow: "מה אנחנו מציעים",
+      title: "שירותים ומחירים",
+      description: "מחירים שקופים לכל שירות. המחיר הסופי עשוי להשתנות מעט בהתאם לגודל הרכב ומצבו.",
+      priceFrom: "החל מ-",
+      items: [
+        { name: "שטיפה חיצונית", description: "שטיפה ידנית, אמבט קצף, גלגלים וצמיגים.", price: "₪80" },
+        { name: "דיטיילינג פנימי", description: "שאיבה יסודית, לוח מחוונים, פאנלים וזגוגיות.", price: "₪250" },
+        { name: "ניקוי תא מנוע", description: "הסרת שומן וניקוי בטוח של תא המנוע.", price: "₪150" },
+        { name: "טיפול בישיבת עור", description: "ניקוי יסודי והזנה לישיבת עור.", price: "₪200" },
+        { name: "פוליש ותיקון צבע", description: "מסיר סימני שריטות ומחזיר עומק לצבע.", price: "₪450" },
+        { name: "ציפוי ננו קרמי - רכב מלא", description: "הגנה קרמית ארוכת טווח וברק עמוק.", price: "₪1,200" },
       ],
     },
     gallery: {
