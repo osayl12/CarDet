@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   FaSoap,
   FaBroom,
@@ -12,6 +13,15 @@ import Reveal from "./Reveal";
 import { useLanguage } from "@/lib/LanguageProvider";
 
 const ICONS = [FaSoap, FaBroom, FaGears, FaCouch, FaWandMagicSparkles, FaShieldHalved];
+
+const IMAGES = [
+  "/images/services/exterior-wash.jpg",
+  "/images/services/interior-detailing.jpg",
+  "/images/services/engine-bay.jpg",
+  "/images/services/leather-seats.jpg",
+  "/images/services/paint-correction.jpg",
+  "/images/services/nano-coating.jpg",
+];
 
 export default function ServicesGrid() {
   const { t } = useLanguage();
@@ -32,17 +42,30 @@ export default function ServicesGrid() {
             const Icon = ICONS[i % ICONS.length];
             return (
               <Reveal key={service.name} delay={i * 80}>
-                <div className="group flex h-full flex-col rounded-2xl bg-neutral-900 p-6 ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:ring-accent/40">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
-                    <Icon size={20} />
+                <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-neutral-900 ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:ring-accent/40">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={IMAGES[i % IMAGES.length]}
+                      alt={service.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/10 to-transparent" />
+                    <div className="absolute bottom-3 start-3 flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-white shadow-lg">
+                      <Icon size={18} />
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold">{service.name}</h3>
-                  <p className="mt-2 flex-1 text-sm text-white/60">{service.description}</p>
-                  <div className="mt-5 flex items-baseline justify-between border-t border-white/10 pt-4">
-                    <span className="text-xs uppercase tracking-widest text-white/40">
-                      {t.services.priceFrom}
-                    </span>
-                    <span className="text-2xl font-bold text-accent">{service.price}</span>
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="text-lg font-semibold">{service.name}</h3>
+                    <p className="mt-2 flex-1 text-sm text-white/60">{service.description}</p>
+                    <div className="mt-5 flex items-baseline justify-between border-t border-white/10 pt-4">
+                      <span className="text-xs uppercase tracking-widest text-white/40">
+                        {t.services.priceFrom}
+                      </span>
+                      <span className="text-2xl font-bold text-accent">{service.price}</span>
+                    </div>
                   </div>
                 </div>
               </Reveal>
