@@ -4,11 +4,7 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 import SocialIcons from "./SocialIcons";
 import { useLanguage } from "@/lib/LanguageProvider";
-
-const LAT = 32.896149;
-const LON = 35.397032;
-const DIRECTIONS_URL = `https://www.google.com/maps?q=${LAT},${LON}`;
-const MAP_EMBED_URL = `https://www.google.com/maps?q=${LAT},${LON}&z=15&output=embed`;
+import { DIRECTIONS_URL, MAP_EMBED_URL, PHONE_TEL } from "@/lib/business";
 
 export default function SiteFooter() {
   const { t } = useLanguage();
@@ -35,7 +31,7 @@ export default function SiteFooter() {
           <h3 className="font-semibold text-white/90">{t.footer.contactTitle}</h3>
           <ul className="mt-3 space-y-2 text-white/60">
             <li>
-              <a href="tel:0504306426" className="hover:text-accent transition-colors">
+              <a href={`tel:${PHONE_TEL}`} className="hover:text-accent transition-colors">
                 📞 {t.footer.phone}
               </a>
             </li>

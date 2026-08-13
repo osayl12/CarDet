@@ -2,15 +2,14 @@
 
 import { FaWhatsapp } from "react-icons/fa6";
 import { useLanguage } from "@/lib/LanguageProvider";
-
-const WHATSAPP_NUMBER = "972504306426"; // 050-430-6426 in international format
+import { WHATSAPP_URL } from "@/lib/business";
 
 export default function WhatsAppButton() {
   const { t } = useLanguage();
 
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}`}
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t.whatsapp.aria}

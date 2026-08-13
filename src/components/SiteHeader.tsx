@@ -10,16 +10,20 @@ import {
   FaFileInvoiceDollar,
   FaAddressCard,
   FaWhatsapp,
+  FaPhone,
+  FaLocationDot,
 } from "react-icons/fa6";
 import { useLanguage } from "@/lib/LanguageProvider";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, DIRECTIONS_URL, isOpenNow } from "@/lib/business";
 
 const SECTION_IDS = ["gallery", "services", "quote", "contact"];
-const WHATSAPP_NUMBER = "972504306426";
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled])';
 
 export default function SiteHeader() {
   const { t, lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [openNow, setOpenNow] = useState<boolean | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -30,13 +34,54 @@ export default function SiteHeader() {
     { href: "#contact", label: t.header.links.contact, Icon: FaAddressCard },
   ];
 
-  // close on outside click / Escape
+  // live open/closed status (computed client-side to avoid SSR/client clock mismatch)
+  useEffect(() => {
+    setOpenNow(isOpenNow());
+    const interval = setInterval(() => setOpenNow(isOpenNow()), 60_000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // close on outside click / Escape, keyboard nav + focus trap while open
   useEffect(() => {
     if (!open) return;
 
+    const panel = panelRef.current;
+    const focusables = panel
+      ? Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR))
+      : [];
+
+    focusables[0]?.focus();
+
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+        return;
+      }
+
+      if (!panel) return;
+      const current = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR));
+      if (current.length === 0) return;
+      const activeIndex = current.indexOf(document.activeElement as HTMLElement);
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        current[(activeIndex + 1 + current.length) % current.length].focus();
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        current[(activeIndex - 1 + current.length) % current.length].focus();
+      } else if (e.key === "Tab") {
+        if (activeIndex === -1) return;
+        if (e.shiftKey && activeIndex === 0) {
+          e.preventDefault();
+          current[current.length - 1].focus();
+        } else if (!e.shiftKey && activeIndex === current.length - 1) {
+          e.preventDefault();
+          current[0].focus();
+        }
+      }
     };
+
     const onClick = (e: MouseEvent) => {
       const target = e.target as Node;
       if (
@@ -131,10 +176,10 @@ export default function SiteHeader() {
         </button>
       </div>
 
-      {/* mobile backdrop */}
+      {/* backdrop (mobile: full dim, desktop: subtle) */}
       <div
         onClick={() => setOpen(false)}
-        className={`fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity duration-300 md:bg-black/30 ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -149,8 +194,52 @@ export default function SiteHeader() {
       >
         <div className="h-[3px] w-full shrink-0 bg-gradient-to-r from-accent via-accent2 to-accent" />
 
-        <div className="px-5 pb-1 pt-4 text-xs font-semibold uppercase tracking-widest text-white/30">
-          {t.header.menuAria}
+        <div className="flex items-center justify-between px-5 pb-1 pt-4">
+          <span className="text-xs font-semibold uppercase tracking-widest text-white/30">
+            {t.header.menuAria}
+          </span>
+          {openNow !== null && (
+            <span
+              className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${
+                openNow ? "bg-green-500/15 text-green-400" : "bg-white/10 text-white/50"
+              }`}
+            >
+              <span
+                className={`h-1.5 w-1.5 rounded-full ${
+                  openNow ? "bg-green-400" : "bg-white/40"
+                }`}
+              />
+              {openNow ? t.header.openNow : t.header.closedNow}
+            </span>
+          )}
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 px-3 pb-2 pt-3">
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="flex flex-col items-center gap-1 rounded-xl bg-white/5 py-3 text-xs text-white/70 transition-colors hover:bg-white/10 hover:text-accent"
+          >
+            <FaPhone size={14} />
+            {t.header.call}
+          </a>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center gap-1 rounded-xl bg-white/5 py-3 text-xs text-white/70 transition-colors hover:bg-white/10 hover:text-[#25D366]"
+          >
+            <FaWhatsapp size={14} />
+            {t.header.whatsapp}
+          </a>
+          <a
+            href={DIRECTIONS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center gap-1 rounded-xl bg-white/5 py-3 text-xs text-white/70 transition-colors hover:bg-white/10 hover:text-accent"
+          >
+            <FaLocationDot size={14} />
+            {t.header.directions}
+          </a>
         </div>
 
         <nav className="flex flex-1 flex-col justify-center gap-1 p-3 md:flex-none md:justify-start md:gap-1 md:p-2">
@@ -193,7 +282,7 @@ export default function SiteHeader() {
         </nav>
 
         <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}`}
+          href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 border-t border-white/10 px-5 py-3 text-sm text-white/60 transition-colors hover:text-[#25D366]"

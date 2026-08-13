@@ -15,6 +15,11 @@ export const translations = {
       },
       language: "Language",
       quickContact: "Chat on WhatsApp",
+      openNow: "Open Now",
+      closedNow: "Closed",
+      call: "Call",
+      whatsapp: "WhatsApp",
+      directions: "Directions",
     },
     hero: {
       scrollHint: "Scroll down ↓",
@@ -151,6 +156,11 @@ export const translations = {
       },
       language: "שפה",
       quickContact: "צ'אט בוואטסאפ",
+      openNow: "פתוח עכשיו",
+      closedNow: "סגור",
+      call: "התקשרו",
+      whatsapp: "וואטסאפ",
+      directions: "ניווט",
     },
     hero: {
       scrollHint: "גללו למטה ↓",
