@@ -186,13 +186,17 @@ export default function SiteHeader() {
 
       <div
         ref={panelRef}
-        className={`fixed inset-4 top-20 z-40 flex origin-top flex-col overflow-hidden rounded-2xl bg-neutral-900/95 shadow-2xl ring-1 ring-white/10 backdrop-blur transition-all duration-300 md:absolute md:inset-x-auto md:inset-y-auto md:end-12 md:top-full md:mt-3 md:w-72 md:flex-none ${
+        className={`fixed inset-4 top-20 z-40 flex origin-top flex-col overflow-hidden rounded-2xl bg-gradient-to-b from-neutral-800/90 via-neutral-900/95 to-black/95 shadow-[0_25px_70px_-20px_rgba(59,130,246,0.35),0_10px_30px_-10px_rgba(0,0,0,0.6)] ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 md:absolute md:inset-x-auto md:inset-y-auto md:end-12 md:top-full md:mt-3 md:w-72 md:flex-none ${
           open
             ? "translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-2 scale-95 opacity-0"
         }`}
       >
-        <div className="h-[3px] w-full shrink-0 bg-gradient-to-r from-accent via-accent2 to-accent" />
+        <div className="pointer-events-none absolute -top-16 -start-10 h-40 w-40 rounded-full bg-accent/25 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-20 -end-10 h-40 w-40 rounded-full bg-accent2/20 blur-3xl" />
+
+        <div className="relative z-10 flex flex-1 flex-col overflow-hidden md:flex-none">
+          <div className="h-[3px] w-full shrink-0 bg-gradient-to-r from-accent via-accent2 to-accent" />
 
         <div className="flex items-center justify-between px-5 pb-1 pt-4">
           <span className="text-xs font-semibold uppercase tracking-widest text-white/30">
@@ -313,6 +317,7 @@ export default function SiteHeader() {
               עברית
             </button>
           </div>
+        </div>
         </div>
       </div>
     </header>
