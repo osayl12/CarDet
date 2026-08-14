@@ -23,7 +23,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         <AmbientBackground />
         <SiteHeader />
         <section className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
-          <h1 className="text-3xl font-bold">{labels.notFoundTitle}</h1>
+          <h1 className="font-heading text-3xl font-bold">{labels.notFoundTitle}</h1>
           <p className="mt-3 max-w-md text-white/60">{labels.notFoundBody}</p>
           <Link
             href="/#services"
@@ -67,13 +67,13 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
             </div>
 
-            <h1 className="mt-8 text-3xl font-bold md:text-5xl">{service.name}</h1>
+            <h1 className="mt-8 font-heading text-3xl font-bold md:text-5xl">{service.name}</h1>
             <p className="mt-4 max-w-2xl text-lg text-white/70">{service.intro}</p>
           </Reveal>
 
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
             <Reveal delay={100}>
-              <h2 className="text-xl font-semibold text-accent">{labels.process}</h2>
+              <h2 className="font-heading text-xl font-semibold text-accent">{labels.process}</h2>
               <ol className="mt-4 space-y-3">
                 {service.steps.map((step, i) => (
                   <li key={step} className="flex gap-3 text-white/70">
@@ -87,7 +87,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             </Reveal>
 
             <Reveal delay={150}>
-              <h2 className="text-xl font-semibold text-accent">{labels.materialsUsed}</h2>
+              <h2 className="font-heading text-xl font-semibold text-accent">{labels.materialsUsed}</h2>
               <ul className="mt-4 space-y-3">
                 {service.materials.map((material) => (
                   <li key={material} className="flex gap-3 text-white/70">
@@ -100,7 +100,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           </div>
 
           <Reveal delay={200} className="mt-14">
-            <h2 className="text-xl font-semibold text-accent">{labels.pricing}</h2>
+            <h2 className="font-heading text-xl font-semibold text-accent">{labels.pricing}</h2>
             <div className="mt-4 overflow-hidden rounded-2xl ring-1 ring-white/10">
               {service.tiers.map((tier, i) => (
                 <div
@@ -110,7 +110,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   }`}
                 >
                   <span className="text-white/80">{tier.label}</span>
-                  <span className="text-lg font-bold text-accent">{tier.price}</span>
+                  <span className="font-racing text-lg tracking-wide text-accent">{tier.price}</span>
                 </div>
               ))}
             </div>
@@ -129,7 +129,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                       }`}
                     >
                       <span className="text-white/80">{addOn.label}</span>
-                      <span className="font-semibold text-white/70">{addOn.price}</span>
+                      <span className="font-racing tracking-wide text-white/70">{addOn.price}</span>
                     </div>
                   ))}
                 </div>

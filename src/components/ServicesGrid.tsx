@@ -39,7 +39,7 @@ export default function ServicesGrid() {
           <span className="text-sm uppercase tracking-widest text-accent">
             {t.services.eyebrow}
           </span>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">{t.services.title}</h2>
+          <h2 className="mt-2 font-heading text-3xl font-bold md:text-4xl">{t.services.title}</h2>
           <p className="mt-3 max-w-xl text-white/60">{t.services.description}</p>
         </Reveal>
 
@@ -81,7 +81,7 @@ export default function ServicesGrid() {
                       <span className="text-xs uppercase tracking-widest text-white/40">
                         {t.services.priceFrom}
                       </span>
-                      <span className="text-2xl font-bold text-accent">
+                      <span className="font-racing text-2xl tracking-wide text-accent">
                         {service.tiers[0].price}
                       </span>
                     </div>

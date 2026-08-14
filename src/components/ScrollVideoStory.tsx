@@ -102,7 +102,7 @@ export default function ScrollVideoStory() {
             <span className="mb-3 text-sm uppercase tracking-widest text-accent">
               {state.eyebrow}
             </span>
-            <h2 className="max-w-2xl text-4xl font-bold leading-tight md:text-6xl">
+            <h2 className="max-w-2xl font-heading text-4xl font-bold leading-tight md:text-6xl">
               {state.title}
             </h2>
             <p className="mt-4 max-w-xl text-lg text-white/80">{state.body}</p>

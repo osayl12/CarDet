@@ -11,6 +11,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["Heebo", "Arial", "Helvetica", "sans-serif"],
+        script: ["Yellowtail", "cursive"],
+        racing: ["Racing Sans One", "Arial", "sans-serif"],
+        heading: ["Rubik", "Arial", "Helvetica", "sans-serif"],
       },
     },
   },

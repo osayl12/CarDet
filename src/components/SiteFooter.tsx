@@ -21,7 +21,7 @@ export default function SiteFooter() {
               height={36}
               className="rounded-full"
             />
-            <span className="text-xl font-bold">{t.header.businessName}</span>
+            <span className="font-script text-2xl tracking-wide">{t.header.businessName}</span>
           </div>
           <p className="mt-3 text-white/60">{t.footer.description}</p>
           <SocialIcons className="mt-5" />

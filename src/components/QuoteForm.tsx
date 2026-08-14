@@ -50,7 +50,7 @@ function QuoteFormInner() {
           <span className="text-sm uppercase tracking-widest text-accent">
             {t.quote.eyebrow}
           </span>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">{t.quote.title}</h2>
+          <h2 className="mt-2 font-heading text-3xl font-bold md:text-4xl">{t.quote.title}</h2>
           <p className="mt-3 text-white/60">{t.quote.description}</p>
         </Reveal>
 

@@ -13,7 +13,7 @@ export default function VideoGallery() {
           <span className="text-sm uppercase tracking-widest text-accent">
             {t.gallery.eyebrow}
           </span>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">{t.gallery.title}</h2>
+          <h2 className="mt-2 font-heading text-3xl font-bold md:text-4xl">{t.gallery.title}</h2>
           <p className="mt-3 max-w-xl text-white/60">{t.gallery.description}</p>
         </Reveal>
 

@@ -13,7 +13,7 @@ export default function ProductsGrid() {
           <span className="text-sm uppercase tracking-widest text-accent">
             {t.products.eyebrow}
           </span>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">{t.products.title}</h2>
+          <h2 className="mt-2 font-heading text-3xl font-bold md:text-4xl">{t.products.title}</h2>
           <p className="mt-3 max-w-xl text-white/60">{t.products.description}</p>
         </Reveal>
 

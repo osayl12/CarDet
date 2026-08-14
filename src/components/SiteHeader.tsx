@@ -145,7 +145,7 @@ export default function SiteHeader() {
             className="rounded-full"
             priority
           />
-          <span className="text-xl font-bold tracking-tight">{t.header.businessName}</span>
+          <span className="font-script text-2xl tracking-wide">{t.header.businessName}</span>
         </a>
 
         <button
