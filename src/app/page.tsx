@@ -7,6 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 import AmbientBackground from "@/components/AmbientBackground";
+import IntroGate from "@/components/IntroGate";
 
 // ProductsGrid is temporarily removed from the page (not deleted) —
 // see src/components/ProductsGrid.tsx. Re-add the import + <ProductsGrid />
@@ -15,6 +16,7 @@ import AmbientBackground from "@/components/AmbientBackground";
 export default function Home() {
   return (
     <main>
+      <IntroGate />
       <AmbientBackground />
       <SiteHeader />
       <ScrollVideoStory />

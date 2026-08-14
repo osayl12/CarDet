@@ -21,6 +21,9 @@ export const translations = {
       whatsapp: "WhatsApp",
       directions: "Directions",
     },
+    intro: {
+      skip: "Skip",
+    },
     hero: {
       scrollHint: "Scroll down ↓",
       states: [
@@ -161,6 +164,9 @@ export const translations = {
       call: "התקשרו",
       whatsapp: "וואטסאפ",
       directions: "ניווט",
+    },
+    intro: {
+      skip: "דלגו",
     },
     hero: {
       scrollHint: "גללו למטה ↓",
