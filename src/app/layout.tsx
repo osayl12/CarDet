@@ -65,7 +65,11 @@ const jsonLd = {
       closes: "14:00",
     },
   ],
-  sameAs: ["https://facebook.com/", "https://instagram.com/", "https://tiktok.com/"],
+  sameAs: [
+    "https://facebook.com/",
+    "https://www.instagram.com/slickgarage0",
+    "https://www.tiktok.com/@slickgarage0",
+  ],
 };
 
 export default function RootLayout({

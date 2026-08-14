@@ -1,10 +1,10 @@
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa6";
 
-// TODO: להחליף את הקישורים ל-URL האמיתיים של דפי העסק
+// TODO: להחליף את קישור הפייסבוק ל-URL האמיתי של דף העסק
 const LINKS = [
   { label: "Facebook", href: "https://facebook.com/", Icon: FaFacebookF },
-  { label: "Instagram", href: "https://instagram.com/", Icon: FaInstagram },
-  { label: "TikTok", href: "https://tiktok.com/", Icon: FaTiktok },
+  { label: "Instagram", href: "https://www.instagram.com/slickgarage0", Icon: FaInstagram },
+  { label: "TikTok", href: "https://www.tiktok.com/@slickgarage0", Icon: FaTiktok },
   { label: "WhatsApp", href: "https://wa.me/972504306426", Icon: FaWhatsapp },
 ];
 
